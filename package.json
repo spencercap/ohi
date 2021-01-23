@@ -1,7 +1,6 @@
 {
-	"name": "vue-3-ext",
+	"name": "ohi",
 	"version": "0.1.0",
-	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service build --mode development --watch",
 		"build": "vue-cli-service build",
@@ -38,19 +37,21 @@
 		"parserOptions": {
 			"ecmaVersion": 2020
 		},
-		"ignorePatterns": [ "dist/*" ],
+		"ignorePatterns": [
+			"dist/*"
+		],
 		"rules": {
 			"quotes": [
-					"error",
-					"single"
+				"error",
+				"single"
 			],
 			"indent": [
-					"warn",
-					"tab"
+				"warn",
+				"tab"
 			],
 			"semi": [
-					"warn",
-					"always"
+				"warn",
+				"always"
 			]
 		}
 	},

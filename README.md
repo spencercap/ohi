@@ -1,4 +1,5 @@
-# vue-3-ext
+# ohi
+i see you there
 
 vue 3 based chrome extension in typescript (SFC syntax)
 
