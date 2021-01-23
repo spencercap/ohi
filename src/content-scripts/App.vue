@@ -1,21 +1,38 @@
 <template>
 	frontend:
-	<hello-world />
 
-	<button @click="inc++">{{ inc }}</button>
+	<greeter />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue';
+// import HelloWorld from '@/components/HelloWorld.vue';
+import Greeter from '@/components/Greeter.vue';
+
+import { auth } from '@/firebase';
 
 export default defineComponent({
 	name: 'App',
-	components: { HelloWorld },
+	components: {
+		// HelloWorld,
+		Greeter
+	},
 	data() {
 		return {
-			inc: 0
+			// inc: 0
 		};
+	},
+	mounted() {
+		console.log('App mounted');
+
+		auth.onAuthStateChanged(async (authUser) => {
+			console.log('authUser changed:', authUser);
+
+			if (authUser) {
+				await this.$store.init(authUser.uid);
+			}
+		});
+		auth.signInAnonymously();
 	}
 });
 </script>

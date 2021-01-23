@@ -8,12 +8,19 @@ document.body.appendChild(appEl);
 // make vue app
 import { createApp } from 'vue';
 import App from './App.vue';
-// mount app
-createApp(App).mount('#ohi-app');
+// create app
+export const app = createApp(App);
+
+// add custom vue reactive store
+import store from '@/store';
+app.config.globalProperties.$store = store;
+
+// mount app to DOM
+app.mount('#ohi-app');
 
 //
-setInterval(() => {
-	console.log('Hello from the content-script');
+// setInterval(() => {
+// 	console.log('Hello from the content-script');
 
-	// console.log('d', document);
-}, 1000);
+// 	// console.log('d', document);
+// }, 1000);
