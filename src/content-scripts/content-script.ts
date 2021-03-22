@@ -16,7 +16,7 @@ import store from '@/store';
 app.config.globalProperties.$store = store;
 
 // mount app to DOM
-app.mount('#ohi-app');
+export const vm = app.mount('#ohi-app');
 
 //
 // setInterval(() => {

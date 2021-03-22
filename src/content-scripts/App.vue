@@ -25,13 +25,15 @@ export default defineComponent({
 	mounted() {
 		console.log('App mounted');
 
+		// auth
 		auth.onAuthStateChanged(async (authUser) => {
-			console.log('authUser changed:', authUser);
-
 			if (authUser) {
 				await this.$store.init(authUser.uid);
+			} else {
+				this.$store.destroy();
 			}
 		});
+		// TODO move this to backend so SAME uid is tied to multiple tabs?
 		auth.signInAnonymously();
 	}
 });
@@ -40,7 +42,7 @@ export default defineComponent({
 <style>
 #ohi-app {
 	position: fixed;
-	left: 0;
+	right: 0;
 	bottom: 0;
 	z-index: 99999;
 }
